@@ -8,6 +8,14 @@ namespace VegaJuego
         {
             InitializeComponent();
             IniciarPersonajes();
+            IniciarOpcionesDelMapa();
+        }
+
+        private void IniciarOpcionesDelMapa()
+        {
+            labelVida.Text = "Salud->" + Player.Salud;
+            labelEscudo.Text = "Escudo->" + Player.Escudo;
+            labelArma.Text = "Arma->" + Player.Arma;
         }
 
         private void IniciarPersonajes()
@@ -26,5 +34,6 @@ namespace VegaJuego
         {
             Enemigo1.mover();
         }
+
     }
 }

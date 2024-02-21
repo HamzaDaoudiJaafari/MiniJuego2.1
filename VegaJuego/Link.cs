@@ -23,7 +23,7 @@ namespace VegaJuego
             get { return arma; }
             set { arma = value; }
         }
-        public int Sududo
+        public int Salud
         {
             get { return salud; }   
             set { salud = value; }
