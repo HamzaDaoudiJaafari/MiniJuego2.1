@@ -1,18 +1,29 @@
+using System.Media;
+
 namespace VegaJuego
 {
     public partial class Level1 : Form
     {
         Link Player;
         Broncas Enemigo1;
-        public Level1()
+        SoundPlayer musica;
+        Boolean HaySonido = false;
+        public Level1(CheckBox onOff)
         {
             InitializeComponent();
             IniciarPersonajes();
-            IniciarOpcionesDelMapa();
+            IniciarOpcionesDelMapa(onOff);
+           
         }
 
-        private void IniciarOpcionesDelMapa()
+        private void IniciarOpcionesDelMapa(CheckBox onOff)
         {
+            if (onOff.Checked == true) 
+            {
+                musica = new SoundPlayer(global::VegaJuego.Properties.Resources.sonido);
+                musica.PlayLooping();
+                HaySonido = true;
+            }
             labelVida.Text = "Salud->" + Player.Salud;
             labelEscudo.Text = "Escudo->" + Player.Escudo;
             labelArma.Text = "Arma->" + Player.Arma;
@@ -43,6 +54,10 @@ namespace VegaJuego
             if (Player.Salud <= 0)
             {
                 this.Hide();
+                if (HaySonido == true)
+                {
+                    musica.Stop();
+                }
                 Final End = new Final();
                 // Paramos el temporizador
                 MovEnemigos.Stop();
@@ -50,5 +65,9 @@ namespace VegaJuego
             }
         }
 
+        private void Level1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

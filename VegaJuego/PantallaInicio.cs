@@ -21,5 +21,12 @@ namespace VegaJuego
         {
             Application.Exit();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Level1 Level1 = new Level1(checkSonido);
+            Level1.Show();
+        }
     }
 }

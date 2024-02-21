@@ -96,6 +96,7 @@
             button1.TabIndex = 4;
             button1.Text = "           Comienza la aventura";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // checkSonido
             // 
